@@ -1,0 +1,349 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+body {
+    overflow: hidden;
+}
+
+.body-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 25px;
+    border-bottom: 1px solid #e9ecef;
+    height: 75px;
+    flex-grow: 1;
+    background-color: #81d4fa
+}
+
+arcgis-map {
+    cursor: pointer;
+    width: 100%;
+    flex-grow: 1;
+    min-height: 80%;
+    height: calc(100% - 75px);
+}
+
+arcgis-map calcite-action {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+.controls-wrapper {
+    height: auto;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.time-slider-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-overlay-element {
+    background-color: rgba(255, 255, 255, 0.40);
+    padding: 5px 10px;
+}
+
+.legend {
+    bottom: 30px;
+    right: 0;
+    max-height: 90%;
+    overflow-y: auto;
+    margin: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px #ddd solid;
+}
+
+.legend:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.header-group {
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-header-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-header-bar h4 {
+    margin: 0;
+}
+
+.status-btn {
+    border: 1px solid black;
+    text-transform: unset;
+    font-weight: bold;
+    width: 150px;
+    color: black;
+    background-color: white;
+}
+
+.status-btn.active {
+    color: white;
+    background-color: green;
+}
+
+.chart {
+    height: fit-content;
+    text-align: center;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 1250px;
+    max-height: max(4in, 575px);
+}
+
+.controls-box {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Override materialize css styles */
+label {
+    font-size: 1.2rem !important;
+}
+
+ul.dropdown-content {
+    max-height: 400px;
+}
+
+.custom-toast-placement {
+    position: fixed;
+    top: 30% !important;
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+}
+
+.chart-category-container {
+    width: 100%;
+    visibility: visible;
+    transition: transform 0.5s;
+    height: 100%;
+    max-height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute
+}
+
+.chart-category-container.dissolve-backwards {
+    transform: translateX(-100%);
+}
+
+.modal.bottom-sheet {
+    max-height: 80%;
+}
+
+button > a {
+    color: unset;
+}
+
+.time-sliders {
+    position: absolute;
+    bottom: 20px;
+    width: 80%;
+    left: 10%;
+    visibility: hidden;
+}
+
+.time-sliders.show-slider {
+    visibility: visible;
+}
+
+.time-slider-title {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+#charts-modal > .modal-content {
+    padding: 5px;
+}
+
+.settings-options-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.report-option-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.report-option-wrapper * {
+    flex: 1 0 auto;
+    width: 50%;
+}
+
+.modal-footer {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+input.river-id {
+    width: 200px;
+    margin: 10px
+}
+
+table.forecast-probability-table td, table.forecast-probability-table th {
+    text-align: center;
+}
+
+#forecast-date-calendar {
+    width: 150px;
+    margin: 0;
+}
+
+#enter-river-id-container {
+    width: 350px;
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden-underneath {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* Report preview overlay */
+#report-preview-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1100;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    align-items: center;
+}
+
+#report-preview-container.active {
+    display: flex;
+}
+
+.report-preview-toolbar {
+    width: 100%;
+    max-width: 8.5in;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    gap: 8px;
+}
+
+.report-preview-toolbar button {
+    color: white;
+}
+
+#report-preview-container iframe {
+    width: 100%;
+    max-width: 9.5in;
+    flex: 1;
+    border: none;
+    background-color: #525659;
+}
+
+/* on mobile screens, change the download-buttons class */
+@media (max-width: 800px) {
+    .download-buttons {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .nav-bar-wrapper {
+        padding: 0 13px;
+    }
+
+    .hide-on-small-only {
+        display: none;
+    }
+}
+
+.progress-with-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progress-with-label progress {
+    width: 80%;
+}
+
+.progress-with-label div {
+    width: 15%;
+    text-align: right;
+    font-weight: bold;
+}
