@@ -102,11 +102,15 @@ const buildFilterExpression = () => {
 }
 const updateHash = ({lon, lat, zoom, definition}) => {
   const hashParams = new URLSearchParams(window.location.hash.slice(1))
-  hashParams.set('lon', lon ? lon.toFixed(2) : hashParams.get('lon'))
-  hashParams.set('lat', lat ? lat.toFixed(2) : hashParams.get('lat'))
-  hashParams.set('zoom', zoom ? zoom.toFixed(2) : hashParams.get('zoom'))
-  hashParams.set('definition', definition ? definition : hashParams.get('definition') || "")
-  window.location.hash = hashParams.toString()
+
+  if (Number.isFinite(lon)) hashParams.set('lon', lon.toFixed(2))
+  if (Number.isFinite(lat)) hashParams.set('lat', lat.toFixed(2))
+  if (Number.isFinite(zoom)) hashParams.set('zoom', zoom.toFixed(2))
+  if (definition !== undefined && definition !== null) hashParams.set('definition', definition)
+
+  const nextHash = hashParams.toString()
+  const nextUrl = `${window.location.pathname}${window.location.search}${nextHash ? `#${nextHash}` : ""}`
+  window.history.replaceState(window.history.state, "", nextUrl)
 }
 
 const displayRiverNumber = riverId => {
